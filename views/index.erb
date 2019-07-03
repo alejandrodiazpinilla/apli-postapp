@@ -1,12 +1,14 @@
 <h1>Estos son los Posts</h1>
 
 <a href="/posts/new">Crear post</a>
-<ul><%@posts.each_with_index do |post , id|%>
+<ul><%@posts.each do |post|%>
      <li>
-        <%="#{post[:description]}"%>
-        <a href="/posts/<%=id%>">Mostrar post</a>
-        <a href="/posts/<%=id%>/edit">Editar </a>
-        <form action="/posts/<%=id%>" method="post">
+        <%="#{post.description}"%>
+        <br>
+        <a href="/posts/<%=post.id%>">Mostrar post</a>
+       <br>
+        <a href="/posts/<%=post.id%>/edit">Editar </a>
+        <form action="/posts/<%=post.id%>" method="post">
             <input type="hidden" name="_method" value="delete">
             <button type="submit">Eliminar</button>
         </form>
